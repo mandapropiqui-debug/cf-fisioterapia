@@ -91,11 +91,11 @@ function enter(target){
   gate.classList.add('out');body.classList.add('in');
   window.scrollTo(0,0);
   setTimeout(function(){gate.style.display='none'},950);
-  if(target&&target!=='#inicio'){setTimeout(function(){var el=$(target);if(el)el.scrollIntoView()},60)}
+  if(target&&target!=='#inicio'){setTimeout(function(){var el=$(target);if(el)el.scrollIntoView({behavior:'instant',block:'start'})},60)}
   startFx();
 }
 $('#skip').addEventListener('click',function(){enter()});
-cta.addEventListener('click',function(e){e.preventDefault();enter()});
+cta.addEventListener('click',function(e){e.preventDefault();enter('#onde-doi')});
 if(/[?&]direto/.test(location.search)||document.documentElement.classList.contains('desk'))enter();
 
 /* =============== EFEITOS DA PÁGINA =============== */
